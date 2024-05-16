@@ -19,7 +19,7 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private GameObject[] options;
     [SerializeField] private TMP_Text[] optionsText;
 
-    private string charName;
+    private Character charName;
     private string dialogue;
     private TMP_FontAsset font;
     private Sprite portrait;
@@ -44,7 +44,7 @@ public class DialogueUI : MonoBehaviour
         dialogueCanvas.SetActive(value);
     }
 
-    public void DisplayDialogue(string cn, float sp, float pt, TMP_FontAsset ft, AudioClip[] sf, Sprite pr, float vm, string di)
+    public void DisplayDialogue(Character cn, float sp, float pt, TMP_FontAsset ft, AudioClip[] sf, Sprite pr, float vm, string di)
     {
         charName = cn;
         dialogue = di;
@@ -94,8 +94,8 @@ public class DialogueUI : MonoBehaviour
 
     private void SetUIAssets()
     {
-        if (charName != null)
-            characterName.text = charName;
+        if (charName != Character.None)
+            characterName.text = charName.ToString();
 
         if (font != null)
             characterName.font = font;

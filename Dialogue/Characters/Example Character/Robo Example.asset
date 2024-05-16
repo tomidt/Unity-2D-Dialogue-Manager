@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1d39d2be8450ac43b8944cdcfd11c26, type: 3}
   m_Name: Robo Example
   m_EditorClassIdentifier: 
-  charName: Robo Example
+  charName: 1
   speed: 0.1
   pitch: 1
   font: {fileID: 11400000, guid: 95ffa38c9b8bde44f817ce95acf7ffdd, type: 2}
@@ -22,11 +22,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9b0450adfc80d4f42bd04b5bda841a35, type: 3}
   - {fileID: 8300000, guid: 3088dcd5a2bb3714ca84b2ac7b305821, type: 3}
   expressions:
-  - expName: neutral
+  - expName: 0
     portrait: {fileID: 21300000, guid: bef57420ad7580a4c9a2a3ab4a6bf976, type: 3}
-  - expName: sad
+  - expName: 1
     portrait: {fileID: 21300000, guid: 3519ce898d4d0404b9af6bd18af435af, type: 3}
-  - expName: happy
+  - expName: 2
     portrait: {fileID: 21300000, guid: 2d1f846d1587cad458b0d655b1e6fa94, type: 3}
-  - expName: angry
+  - expName: 3
     portrait: {fileID: 21300000, guid: 4f348540c685fc544beab39059facb32, type: 3}

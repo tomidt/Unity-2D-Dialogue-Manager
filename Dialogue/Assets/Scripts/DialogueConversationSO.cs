@@ -15,8 +15,8 @@ public class DialogueConversationSO : ScriptableObject
         // branch can only be the last DialogLine
         public bool branch;
 
-        public string charName;
-        public string expression;
+        public Character charName;
+        public Expression expression;
 
         // additive volume modifier ; 0.2 = 120% ; -0.4 = 60%
         public float volumeMod;
@@ -38,4 +38,5 @@ public class DialogueConversationSO : ScriptableObject
     public float volume;
     public DialogueLine[] conversation;
     public BranchOption[] branchOptions;
+    public DialogueConversationSO nextConvo;
 }

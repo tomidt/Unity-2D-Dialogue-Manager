@@ -8,7 +8,7 @@ public class CharaLibSO : ScriptableObject
 {
     public CharacterSO[] characters;
 
-    public CharacterSO GetCharacter(string name)
+    public CharacterSO GetCharacter(Character name)
     {
         return characters.FirstOrDefault(character => character.charName == name);
     }

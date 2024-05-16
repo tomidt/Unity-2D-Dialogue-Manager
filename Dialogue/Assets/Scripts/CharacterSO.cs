@@ -8,23 +8,23 @@ using TMPro;
 public class CharacterSO : ScriptableObject
 {
     [System.Serializable]
-    public struct Expression
+    public struct Express
     {
-        public string expName;
+        public Expression expName;
         public Sprite portrait;
     }
 
-    public string charName;
+    public Character charName;
     public float speed;
     public float pitch;
     public TMP_FontAsset font;
 
     public AudioClip[] sfx;
-    public Expression[] expressions;
+    public Express[] expressions;
 
-    public Sprite GetExpression(string name)
+    public Sprite GetExpression(Expression name)
     {
-        foreach (Expression e in expressions)
+        foreach (Express e in expressions)
             if (e.expName == name)
                 return e.portrait;
         return null;

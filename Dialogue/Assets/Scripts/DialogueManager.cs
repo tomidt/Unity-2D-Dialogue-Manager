@@ -26,8 +26,6 @@ public class DialogueManager : MonoBehaviour
 
     [HideInInspector] public bool isTalking;
 
-    public DialogueConversationSO convo;
-
     private DialogueUI uiManager;
     private DialogueAudio audioManager;
 
@@ -42,8 +40,6 @@ public class DialogueManager : MonoBehaviour
         audioManager = GetComponentInChildren<DialogueAudio>();
         uiManager.InitDialogueUI();
         isTalking = false;
-
-        StartDialogueConvo(convo);
     }
 
     private void Update()
@@ -78,7 +74,30 @@ public class DialogueManager : MonoBehaviour
             ExitDialogue();
     }
 
+    // start convo; call with dialogueconvoso to start convo
+
     public void StartDialogueConvo(DialogueConversationSO dialogue)
+    {
+        if (audioManager == null || uiManager == null)
+        {
+            StartCoroutine(WaitManagers(dialogue));
+            return;
+        }
+
+        StartHelper(dialogue);
+    }
+
+    // helpers
+
+    private IEnumerator WaitManagers(DialogueConversationSO dialogue)
+    {
+        while (audioManager == null || uiManager == null)
+            yield return null;
+
+        StartHelper(dialogue);
+    }
+
+    private void StartHelper(DialogueConversationSO dialogue)
     {
         currentConvo = dialogue;
         currentIndex = 0;
@@ -93,16 +112,22 @@ public class DialogueManager : MonoBehaviour
         PlayDialogue();
     }
 
+    // exit dialogue; call to end current dialogue
+
     public void ExitDialogue()
     {
         EndDialogue();
     }
+
+    // select options; called by ui buttons
 
     public void SelectOption(int option)
     {
         endDialogue.Invoke();
         StartDialogueConvo(currentConvo.branchOptions[option].dialogConversation);
     }
+
+    // helpers
 
     private void PlayDialogue()
     {
@@ -152,9 +177,16 @@ public class DialogueManager : MonoBehaviour
     private void EndDialogue()
     {
         uiManager.SkipDialogue();
-        uiManager.EnableUI(false);
-        isTalking = false;
         endDialogue.Invoke();
+
+        if (currentConvo.nextConvo == null)
+        {
+            uiManager.EnableUI(false);
+            isTalking = false;
+            return;
+        }
+        
+        StartDialogueConvo(currentConvo.nextConvo);
     }
 
     private void CheckEvents()
