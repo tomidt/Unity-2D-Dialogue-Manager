@@ -25,8 +25,9 @@ MonoBehaviour:
     charName: 1
     expression: 0
     volumeMod: 0
-    dialogueText: abc def gh
-    events: []
+    dialogueText: this will trigger an event
+    events:
+    - eventone
   - branch: 0
     charName: 1
     expression: 0

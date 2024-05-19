@@ -12,7 +12,6 @@ public class DialogueAudio : MonoBehaviour
     public void InitDialogueAudio(float vol)
     {
         volume = vol;
-        Debug.Log("test");
     }
     public void SetAudioProfile(AudioClip[] sf, float pitch, float volumeMod)
     {

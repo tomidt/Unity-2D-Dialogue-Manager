@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a59543739627ba142a3e9214183f7d88, type: 3}
-  m_Name: 2Kill him
+  m_Name: 3Rejoin branch
   m_EditorClassIdentifier: 
-  volume: 0.25
+  volume: 0
   conversation:
   - branch: 0
     charName: 1
-    expression: 3
+    expression: 0
     volumeMod: 0
-    dialogueText: <i><color="red">Kill him</i>
+    dialogueText: ':skull:'
     events: []
   branchOptions: []
-  nextConvo: {fileID: 11400000, guid: bb445cf3c22c2aa49a88e4454c86c3c5, type: 2}
+  nextConvo: {fileID: 0}
